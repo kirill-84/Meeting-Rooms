@@ -9,7 +9,7 @@ import AuthProvider from "./auth-provider";
 
 const font = Inter({ subsets: ["cyrillic"] });
 export const metadata: Metadata = {
-	title: "Room Coord",
+	title: "Meeting scheduler",
 	description: "The better way to schedule your meetings."
 };
 
