@@ -1,4 +1,4 @@
-# Room Coord
+# Meeting scheduler
 
 ### The better way to schedule your meetings.
 
