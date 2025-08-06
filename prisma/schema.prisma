@@ -1,0 +1,97 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id    String  @id
+    name  String
+    email String? @unique // Сделаем email опциональным
+    image String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    role UserRole @default(user)
+
+    // Отношения
+    businesses        Business[]
+    meetingEvents     MeetingEvent[]     @relation("CreatedBy")
+    scheduledMeetings ScheduledMeeting[] @relation("UserMeetings")
+}
+
+model Business {
+    id            String  @id @default(cuid())
+    businessName  String  @unique
+    userName      String
+    email         String?
+    daysAvailable Json? // Хранит объект дней доступности: {"Monday": true, "Tuesday": false, ...}
+    startTime     String? // Формат "HH:MM"
+    endTime       String? // Формат "HH:MM"
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    // Отношения
+    user              User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId            String
+    meetingEvents     MeetingEvent[]
+    scheduledMeetings ScheduledMeeting[]
+}
+
+model MeetingEvent {
+    id           String  @id
+    eventName    String
+    duration     Int // Длительность в минутах
+    locationType String // "Zoom", "Meet", "Phone", "Other"
+    locationUrl  String?
+    description  String?
+    themeColor   String // HEX код цвета
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    // Отношения
+    business          Business           @relation(fields: [businessId], references: [id], onDelete: Cascade)
+    businessId        String
+    createdBy         User               @relation("CreatedBy", fields: [createdById], references: [id])
+    createdById       String
+    scheduledMeetings ScheduledMeeting[]
+}
+
+model ScheduledMeeting {
+    id                String   @id
+    selectedTime      String
+    selectedDate      DateTime
+    formatedDate      String // Например, "June 15, 2023"
+    formatedTimeStamp String // Например, "14:30"
+    duration          Int // Длительность в минутах
+    locationUrl       String?
+    userName          String
+    userEmail         String?
+    userNote          String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    // Отношения
+    business      Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+    businessId    String
+    businessName  String
+    businessEmail String?
+
+    meetingEvent MeetingEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+    eventId      String
+
+    user   User?   @relation("UserMeetings", fields: [userId], references: [id])
+    userId String?
+}
+
+enum UserRole {
+    admin
+    user
+}
