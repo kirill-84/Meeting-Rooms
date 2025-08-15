@@ -4,6 +4,7 @@ import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import Nav from "@/components/navigation/nav";
 import Hero from "./_components/Hero";
+import Footer from "./_components/Footer";
 
 export default async function Home() {
 	/*const session = await getServerSession(authOptions);
@@ -26,6 +27,7 @@ export default async function Home() {
 		<div className="h-full">
 			<Nav/>
 			<Hero/>
+			<Footer/>
 		</div>
 		/*<div className="flex flex-col items-center mt-10">
 			<h1>{user?.name}</h1>
