@@ -4,7 +4,7 @@ import React from 'react'
 
 function Hero() {
 	return (
-		<div className='flex h-full flex-col justify-center items-center my-5'>
+		<div className='flex-1 flex flex-col justify-center items-center my-5'>
 			<div className='hidden lg:block'>
 				<Image src='/profile-user-1.svg' width={100} height={100}
 					   className='h-[100px] object-cover rounded-full absolute right-36' alt=''/>
