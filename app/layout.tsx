@@ -19,7 +19,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" suppressHydrationWarning={true}> {/* suppressHydrationWarning is important for next-themes */}
+		<html lang="en" suppressHydrationWarning={true}>
 			<body className={font.className}>
 				<AuthProvider>
 					<ThemeProvider
