@@ -1,5 +1,4 @@
 import { getServerSession } from "next-auth";
-/*import { authOptions } from "@/app/api/auth/[...nextauth]/route";*/
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import Nav from "@/components/navigation/nav";
@@ -29,11 +28,5 @@ export default async function Home() {
 			<Hero/>
 			<Footer/>
 		</div>
-		/*<div className="flex flex-col items-center mt-10">
-			<h1>{user?.name}</h1>
-			<h1 className="truncate max-w-[300px]">{user?.image}</h1>
-			<h1>{user?.id}</h1>
-			<h1>{user?.createdAt.getTime()}</h1>
-		</div>*/
 	);
 }
