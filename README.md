@@ -1,6 +1,6 @@
-# Meeting scheduler
+# Meeting Scheduler
 
-### The better way to schedule your meetings.
+### The better way to schedule your meetings &#128640;
 
 Scheduling automation platform for individuals, businesses taking calls and developers building scheduling platforms where users meet users.
 
