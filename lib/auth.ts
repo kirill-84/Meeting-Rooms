@@ -43,9 +43,9 @@ export const authOptions: NextAuthOptions = {
 
 	callbacks: {
 		async session({
-						  session,
-						  token,
-					  }: {
+				session,
+				token,
+			}: {
 			session: import("next-auth").Session;
 			token: import("next-auth/jwt").JWT;
 		}) {
