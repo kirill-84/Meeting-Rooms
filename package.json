@@ -11,8 +11,8 @@
 	},
 	"dependencies": {
 		"@epic-web/invariant": "^1.0.0",
-		"@emotion/react": "^11",
-		"@emotion/styled": "^11",
+		"@emotion/react": "^11.14.0",
+		"@emotion/styled": "^11.14.1",
 		"@plunk/node": "^3.0.0",
 		"@prisma/adapter-pg": "^6.5.0",
 		"@prisma/client": "^5.1.1",
