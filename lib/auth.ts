@@ -46,7 +46,7 @@ export const authOptions: NextAuthOptions = {
         const validator = new AuthDataValidator({ botToken });
 
         try {
-			console.debug(req.query, reg.body, credentials);
+			console.debug(req.query, req.body, credentials);
           const user = await validator.validate(data);
 
           if (user && user.id && user.first_name) {
