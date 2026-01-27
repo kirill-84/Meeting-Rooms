@@ -18,6 +18,9 @@ import { useSession, signIn, signOut } from "next-auth/react";
 export default function SignInButton({ botUsername }: { botUsername: string }) {
 	const { data: session, status } = useSession();
 
+	// Временная отладка
+	console.log("botUsername received:", botUsername);
+
 	if (status === "loading") {
 		return <ReloadIcon className="h-6 w-6 animate-spin" />;
 	}
@@ -57,7 +60,10 @@ export default function SignInButton({ botUsername }: { botUsername: string }) {
 		<LoginButton
 			botUsername={botUsername}
 			onAuthCallback={(data) => {
-				signIn("telegram-login", { callbackUrl: "/" }, data as any);
+				signIn("telegram-login", {
+					...data,
+					callbackUrl: "/"
+				});
 			}}
 		/>
 	);
