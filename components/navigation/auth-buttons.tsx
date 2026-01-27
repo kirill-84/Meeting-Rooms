@@ -56,12 +56,27 @@ export default function SignInButton({ botUsername }: { botUsername: string }) {
 	return (
 		<LoginButton
 			botUsername={botUsername}
-			onAuthCallback={(data) => {
-				signIn("telegram-login", {
-					...data,
-					callbackUrl: "/"
-				});
-			}}
+		    onAuthCallback={(data) => {
+		      console.log("=== TELEGRAM AUTH CALLBACK ===");
+		      console.log("data:", JSON.stringify(data, null, 2));
+		      
+		      const credentials = {
+		        id: String(data.id),
+		        first_name: data.first_name,
+		        last_name: data.last_name ?? "",
+		        username: data.username ?? "",
+		        photo_url: data.photo_url ?? "",
+		        auth_date: String(data.auth_date),
+		        hash: data.hash,
+		        callbackUrl: "/",
+		      };
+		      
+		      console.log("calling signIn with:", credentials);
+		      
+		      signIn("telegram-login", credentials)
+		        .then((res) => console.log("signIn result:", res))
+		        .catch((err) => console.error("signIn error:", err));
+		    }}
 		/>
 	);
 }
