@@ -16,7 +16,7 @@ function Hero() {
 					   className='h-[100px] object-cover rounded-full absolute right-16 bottom-32' alt=''/>
 			</div>
 			<div className='text-center max-w-3xl'>
-				<h2 className='font-bold text-3xl md:text-6xl text-slate-700'>The better way to schedule your meetings</h2>
+				<h2 className='font-bold text-3xl md:text-6xl text-slate-700'>Probably the better way to schedule your meetings</h2>
 				<h2 className='text-base md:text-lg mt-5 text-slate-500'>Scheduling automation platform for individuals, businesses taking calls and developers building scheduling platforms where users meet users.</h2>
 			</div>
 		</div>
