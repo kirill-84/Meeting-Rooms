@@ -12,7 +12,7 @@ export default function Nav() {
 				<Link href="/">
 					<div className="flex items-center gap-1 ">
 						<Image src='/logo-small.svg' width={100} height={100} alt='logo'
-							   className='block md:hidden w-[150px]'
+							   className='block md:hidden w-10'
 							   priority={false}
 						/>
 						<Image src='/logo.svg' width={100} height={100} alt='logo'
