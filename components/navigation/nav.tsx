@@ -11,8 +11,12 @@ export default function Nav() {
 			<div className="flex items-center justify-between px-5 py-1">
 				<Link href="/">
 					<div className="flex items-center gap-1 ">
+						<Image src='/logo-small.svg' width={100} height={100} alt='logo'
+							   className='block md:hidden w-[150px]'
+							   priority={false}
+						/>
 						<Image src='/logo.svg' width={100} height={100} alt='logo'
-							   className='w-[150px] md:w-[200px]'
+							   className='hidden md:block w-[200px] '
 							   priority={false}
 						/>
 					</div>
